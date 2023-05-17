@@ -10,23 +10,25 @@ public class BST <K extends Comparable<K>, V>{
         }
     }
     public void put(K key, V val){
-        Node newNode = new Node(key, val);
-        if(root == null){
-            root = newNode;
-        }else{
-            Node currentNode = root;
-            while(currentNode != null){
-                if(newNode.val.compareTo(currentNode.val) > 0){
-                    currentNode = currentNode.right;
-                }else if(newNode.val.compareTo(currentNode.val) < 0){
-                    currentNode = currentNode.left;
-                }else if(newNode.val.equals(currentNode.val)){
-                    return;
-                }
-            }
+        root = put(root, key, val);
+    }
+
+    private Node put(Node node, K key, V val) {
+        if (node == null) {
+            return new Node(key, val); // creating new Node and placing in empty position
         }
 
+        int cmp = key.compareTo(node.key); // comparing generic types
+        if (cmp < 0) {
+            node.left = put(node.left, key, val); // left sub tree
+        } else if (cmp > 0) {
+            node.right = put(node.right, key, val);// right sub t3
+        } else {
+            node.val = val; // if we have such key rewrite
+        }
+        return node;
     }
+
     public V get(K key){
         return null;
     }
