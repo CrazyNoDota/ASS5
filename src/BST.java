@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class BST <K extends Comparable<K>, V>{
     private Node root;
     private class Node{
@@ -65,7 +67,9 @@ public class BST <K extends Comparable<K>, V>{
                 return node.left;
             }else{
                 Node successor = findMin(node.right);
-
+                node.key = successor.key;
+                node.val = successor.val;
+                node.right = delete(node.right,successor.key);
             }
         }
         return null;
@@ -76,6 +80,14 @@ public class BST <K extends Comparable<K>, V>{
             return node;
         }
         return findMin(node.left);
+    }
+
+    public void inorder(Node node, List<K> keys){
+        if(node != null){
+            inorder(node.left, keys);
+            keys.add(node.key);
+            inorder(node.right, keys);
+        }
     }
     public Iterable<K> iterator(){
         return null;
