@@ -1,9 +1,18 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class BST <K extends Comparable<K>, V>{
+public class BST <K extends Comparable<K>, V> implements Iterable<K>{
     private Node root;
     private int size;
+
+    @Override
+    public Iterator<K> iterator() {
+        List<K> keys = new ArrayList<>();
+        inorderTraversal(root, keys);
+        return keys.iterator();
+    }
+
     private class Node{
         private K key;
         private V val;
@@ -104,11 +113,7 @@ public class BST <K extends Comparable<K>, V>{
         }
     }
 
-    public Iterable<K> iterator() {
-        List<K> keys = new ArrayList<>();
-        inorderTraversal(root, keys);
-        return keys;
-    }
+
 
     private void inorderTraversal(Node node, List<K> keys) {
         if (node == null) {
