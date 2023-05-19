@@ -84,14 +84,14 @@ public class BST <K extends Comparable<K>, V>{
     }
 
     public void inorder(){
-       inorder(root);
+       inorder(root); // making the method public
     }
 
     public void inorder(Node node){
         if(node!=null) {
-            inorder(node.left);
-            System.out.println(" KEY = " + node.key);
-            inorder(node.right);
+            inorder(node.left); // since we need small first go to the left syb tree
+            System.out.println(" KEY = " + node.key); // after we reach the smallest element print
+            inorder(node.right);// then go to the right sub-tree
         }
     }
 
