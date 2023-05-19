@@ -1,6 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-        System.out.println("New");
+        BST b3 = new BST();
+        b3.put(5,"asd");
+        b3.put(1, "qwe");
+        b3.put(7, "qwer");
+
     }
 }
