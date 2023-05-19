@@ -9,7 +9,7 @@ public class Main {
 
         b3.inorder();
         System.out.println();
-        b3.delete(5);
+        b3.delete(2);
         b3.inorder();
 
     }
