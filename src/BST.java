@@ -50,7 +50,7 @@ public class BST <K extends Comparable<K>, V>{
         }
     }
     public void delete(K key){
-        delete(root, key);
+        root = delete(root, key);
     }
     private Node delete(Node node, K key){
         if(node == null){
@@ -62,6 +62,9 @@ public class BST <K extends Comparable<K>, V>{
         }else if(cmp > 0){
             node.right = delete(node.right, key);
         }else{
+            if(node.left == null && node.right == null){
+                return null;
+            }
             if(node.left == null){
                 return node.right;
             }else if(node.right == null){
@@ -73,10 +76,10 @@ public class BST <K extends Comparable<K>, V>{
                 node.right = delete(node.right,successor.key);
             }
         }
-        return null;
+        return node; // the issue was because here I returned the null value
     }
 
-    private Node findMin(Node node){
+    private Node findMin(Node node){ // the method to find the smallest element in the right sub tree
         if(node.left == null){
             return node;
         }
