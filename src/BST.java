@@ -3,6 +3,7 @@ import java.util.List;
 
 public class BST <K extends Comparable<K>, V>{
     private Node root;
+    private int size;
     private class Node{
         private K key;
         private V val;
@@ -12,8 +13,12 @@ public class BST <K extends Comparable<K>, V>{
             this.val = val;
         }
     }
+    public BST(){
+        size = 0;
+    }
     public void put(K key, V val){
         root = put(root, key, val);
+        size++;
     }
 
     private Node put(Node node, K key, V val) {
@@ -51,6 +56,7 @@ public class BST <K extends Comparable<K>, V>{
     }
     public void delete(K key){
         root = delete(root, key);
+        size--;
     }
     private Node delete(Node node, K key){
         if(node == null){
@@ -96,6 +102,10 @@ public class BST <K extends Comparable<K>, V>{
             System.out.println(" KEY = " + node.key); // after we reach the smallest element print
             inorder(node.right);// then go to the right sub-tree
         }
+    }
+
+    public Iterable<K> iterator(){
+        return null;
     }
 
 }
