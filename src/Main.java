@@ -4,6 +4,9 @@ public class Main {
         b3.put(5,"asd");
         b3.put(1, "qwe");
         b3.put(7, "qwer");
+        b3.put(6, "ierufieug");
+        b3.inorder();
+
 
     }
 }

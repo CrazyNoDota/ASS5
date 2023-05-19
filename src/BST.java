@@ -83,16 +83,16 @@ public class BST <K extends Comparable<K>, V>{
         return findMin(node.left);
     }
 
-    public void inorder(Node node, List<K> keys){
-        if(node != null){
-            inorder(node.left, keys);
-            keys.add(node.key);
-            inorder(node.right, keys);
+    public void inorder(){
+       inorder(root);
+    }
+
+    public void inorder(Node node){
+        if(node!=null) {
+            inorder(node.left);
+            System.out.println(" KEY = " + node.key);
+            inorder(node.right);
         }
     }
-    public Iterable<K> iterator(){
-        List<K> keys = new ArrayList<>();
-        inorder(root, keys);
-        return keys;
-    }
+
 }
