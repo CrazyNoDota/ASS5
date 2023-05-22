@@ -6,11 +6,14 @@ public class Main {
         b3.put(4, "qwer");
         b3.put(3, "ierufieug");
         b3.put(5, "jalil");
+        b3.put(7, "asdasd");
 
-        for (Integer key : b3) {
-            String value = b3.get(key);
-            System.out.println("key is " + key + " and value is " + value);
-        }
+//        for (Integer key : b3) {
+//            String value = b3.get(key);
+//            System.out.println("key is " + key + " and value is " + value);
+//        }
+
+        System.out.println(b3.sizeOfTree());
 
     }
 }

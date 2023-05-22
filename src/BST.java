@@ -125,4 +125,19 @@ public class BST <K extends Comparable<K>, V> implements Iterable<K>{
         inorderTraversal(node.right, keys); // Traverse right subtree
     }
 
+    public int sizeOfTree(Node node, int size){
+        if(node.right != null || node.left != null){
+            size = size + 1;
+
+            int size1 = sizeOfTree(node.right, size);
+            int size2 = sizeOfTree(node.left, size);
+            size = Math.max(size2,size1);
+        }
+        return size;
+    }
+
+    public int sizeOfTree(){
+        return sizeOfTree(root, 0);
+    }
+
 }
