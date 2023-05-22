@@ -5,8 +5,9 @@ public class Main {
         b3.put(1, "qwe");
         b3.put(4, "qwer");
         b3.put(3, "ierufieug");
-        b3.put(5, "jalil");
-        b3.put(7, "asdasd");
+        b3.put(10, "jalil");
+        b3.put(11, "asdasd");
+        b3.put(7,"123123");
 
 //        for (Integer key : b3) {
 //            String value = b3.get(key);

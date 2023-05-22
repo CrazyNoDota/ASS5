@@ -128,9 +128,15 @@ public class BST <K extends Comparable<K>, V> implements Iterable<K>{
     public int sizeOfTree(Node node, int size){
         if(node.right != null || node.left != null){
             size = size + 1;
+            int size1 = 0;
+            int size2 = 0;
+            if(node.right != null){
+                size1 = sizeOfTree(node.right, size);
+            }
+            if (node.left != null){
+                size2 = sizeOfTree(node.left, size);
+            }
 
-            int size1 = sizeOfTree(node.right, size);
-            int size2 = sizeOfTree(node.left, size);
             size = Math.max(size2,size1);
         }
         return size;
